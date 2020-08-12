@@ -14,7 +14,7 @@ MongoClient.connect(url, { useUnifiedTopology: true }).then(client => {
   .then(result => {
     console.log('Dropped Collection:', result);
   })
-  .catch(err => console.log('No collection to drop.'));
+  .catch(err => console.log('No collection to drop.'));  //catch error. We removed assert
 
   dboper.insertDocument(db, {name: "Breadcrumb Trail Campground", description: "Test"}, 'campsites')
   .then(result => {
@@ -44,4 +44,4 @@ MongoClient.connect(url, { useUnifiedTopology: true }).then(client => {
     client.close();
   });
 })
-.catch(err => console.log(err));
+.catch(err => console.log(err));  // catches errors that happens within chain
